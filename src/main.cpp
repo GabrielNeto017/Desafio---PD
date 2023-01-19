@@ -11,6 +11,7 @@ Project: Desafio
 #include <PinDefinition.h>
 #include <GPIO.h>
 #include <Serial.h>
+#include <Options.h>
 
 String SerialBuffer;
 
@@ -33,10 +34,10 @@ void loop()
     switch(SerialBuffer.toInt())
     {
       case 1:
-              //Reg();
+              Reg();
               break;
       case 2:
-              //List_User();
+              List_User();
               break;
       case 3:
               //List_Event();

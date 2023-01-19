@@ -10,6 +10,7 @@ Project: Desafio
 
 void GPIO_Init()
 {
+
   //initialize the led pins
   pinMode (Sala1 , OUTPUT);
   pinMode (Sala2 , OUTPUT);
@@ -22,7 +23,8 @@ void GPIO_Init()
 
 }
 
-void botaoacionado(){
+void botaoacionado()
+{
   
   //Close Room1
   if(digitalRead(Botao1)== LOW)
