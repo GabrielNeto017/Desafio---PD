@@ -43,10 +43,10 @@ void loop()
               //List_Event();
               break;
       case 4:
-              //Room1();
+              Room1();
               break;
       case 5:
-              //Room2();
+              Room2();
               break;
       default:
               break;

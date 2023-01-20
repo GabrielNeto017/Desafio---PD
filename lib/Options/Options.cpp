@@ -49,7 +49,6 @@ void Reg()
         tipo[i] = Serial.readStringUntil('\n');
         Serial.println(tipo[i]);
     }
-
     Serial.println("");
     i++;
 }
@@ -62,8 +61,146 @@ void List_User()
     {
         Serial.print("" +nome[j]);
       	Serial.println(" - " +tipo[j]);
-      
     }
 }
 
 
+void Room1()
+{
+    Serial.print("Nome do Usuario: ");
+    // wait for user input through serial
+    while(Serial.available() == 0);
+
+    //read the input
+    verificacao = Serial.readStringUntil('\n');
+    Serial.print(verificacao);
+    Serial.println(" ");
+    
+    for(int k =0 ; k<i ; k++)
+    {
+        if (verificacao == nome[k])
+        {
+            found = true;
+            nameNo = k;
+        }
+    }
+    
+    if(found)
+    {
+        Serial.print("Entre com a senha: ");
+        // wait for user input through serial
+        while(Serial.available() == 0);
+
+        //read the input
+        verificacao = Serial.readStringUntil('\n');
+        Serial.print(verificacao);
+        Serial.println("");
+        
+        if(senha[nameNo]!=verificacao)
+        {
+            Serial.println("SENHA INCORRETA");
+            Serial.println("");
+        }
+      
+        else if(senha[nameNo]==verificacao)
+        {
+            sala[nameNo] = "Sala1";
+            Serial.println("Abrir Porta 1? 1 - SIM  ou 2 - NAO");
+            // wait for user input through serial
+            while(Serial.available() == 0);
+
+            //read the input
+            verificacao = Serial.readStringUntil('\n');
+            Serial.println(verificacao);
+            
+            if(verificacao=="1")
+            {
+                sala[nameNo] = "Abriu a porta1";
+                evento[l].concat(l);
+                evento[l].concat(" - "); 
+                evento[l].concat(nome[nameNo]);
+                evento[l].concat(",");
+                evento[l].concat(tipo[nameNo]);
+                evento[l].concat(",");
+                evento[l].concat(sala[nameNo]);
+                l++; 
+                digitalWrite(Sala1 , HIGH);
+                Serial.println("Porta1 Liberada");
+                delay(20000);
+                digitalWrite(Sala1 , LOW);
+                
+            }
+        }
+    }
+}
+
+void Room2()
+{
+    Serial.print("Nome do Usuario: ");
+    // wait for user input through serial
+    while(Serial.available() == 0);
+
+    //read the input
+    verificacao = Serial.readStringUntil('\n');
+    Serial.print(verificacao);
+    Serial.println(" ");
+    
+    for(int k =0 ; k<i ; k++)
+    {
+        if (verificacao == nome[k])
+        {
+            found = true;
+            nameNo = k;
+        }
+    }
+    
+    if(found)
+    {
+        Serial.print("Entre com a senha: ");
+        // wait for user input through serial
+        while(Serial.available() == 0);
+
+        //read the input
+        verificacao = Serial.readStringUntil('\n');
+        Serial.print(verificacao);
+        Serial.println("");
+        
+        if(senha[nameNo]!=verificacao)
+        {
+            Serial.println("SENHA INCORRETA");
+            Serial.println("");
+        }
+      
+        else if(senha[nameNo]==verificacao)
+        {
+        
+            sala[nameNo] = "Sala1";
+            Serial.println("Abrir Porta 2? 1 - SIM  ou 2 - NAO");
+            // wait for user input through serial
+            while(Serial.available() == 0);
+
+            //read the input
+            verificacao = Serial.readStringUntil('\n');
+            Serial.println(verificacao);
+            
+            if(verificacao=="1")
+            {
+                sala[nameNo] = "Abriu a porta2";
+                evento[l].concat(l);
+                evento[l].concat(" - "); 
+                evento[l].concat(nome[nameNo]);
+                evento[l].concat(",");
+                evento[l].concat(tipo[nameNo]);
+                evento[l].concat(",");
+                evento[l].concat(sala[nameNo]);
+                l++;
+                digitalWrite(Sala2 , HIGH);
+                Serial.println("Porta2 Liberada");
+                delay(20000);
+                digitalWrite(Sala2 , LOW);
+            }
+        }
+    }
+}
+
+    

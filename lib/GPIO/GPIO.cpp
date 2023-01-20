@@ -19,7 +19,7 @@ void GPIO_Init()
   pinMode (Botao1, INPUT_PULLUP);
   
   attachInterrupt(digitalPinToInterrupt(Botao1), botaoacionado, FALLING);
-  attachInterrupt(digitalPinToInterrupt(Botao1), botaoacionado, FALLING);
+  attachInterrupt(digitalPinToInterrupt(Botao2), botaoacionado, FALLING);
 
 }
 
