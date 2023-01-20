@@ -67,7 +67,6 @@ void List_User()
 
 void List_Event()
 {
-    
     Serial.print("Nome do Usuario: ");
   	// wait for user input through serial
   	while(Serial.available() == 0);
