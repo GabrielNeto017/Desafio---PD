@@ -40,7 +40,7 @@ void loop()
               List_User();
               break;
       case 3:
-              //List_Event();
+              List_Event();
               break;
       case 4:
               Room1();

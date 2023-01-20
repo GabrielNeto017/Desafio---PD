@@ -65,6 +65,72 @@ void List_User()
 }
 
 
+void List_Event()
+{
+    
+    Serial.print("Nome do Usuario: ");
+  	// wait for user input through serial
+  	while(Serial.available() == 0);
+
+  	//read the input
+ 	verificacao = Serial.readStringUntil('\n');
+    Serial.println(verificacao);
+    
+    for(int k =0 ; k<i ; k++)
+    {
+
+      	if (verificacao == nome[k])
+        {
+        	  found = true;
+         	  nameNo = k;
+        }
+    }
+
+    if(found!=true)
+    {
+        Serial.println("USUARIO NAO ENCONTRADO NO NOSSO BANCO DE DADOS \n");
+    }
+
+  	else if(tipo[nameNo]=="Padrao" && found==true)
+    {
+      	Serial.println("ESSE USUARIO NAO EH UM ADMIN");
+      	Serial.println("");
+    }
+    
+    else if(tipo[nameNo]=="Admin" && found==true)
+    {
+     	Serial.print("Entre com a senha: ");
+  		// wait for user input through serial
+  		while(Serial.available() == 0);
+
+  		//read the input
+ 	    verificacao = Serial.readStringUntil('\n');
+     	Serial.println(verificacao);
+      	
+      
+        if(senha[nameNo]!=verificacao)
+        {
+            Serial.println("SENHA INCORRETA \n");
+        }
+      
+        else if(senha[nameNo]==verificacao)
+        {
+            Serial.println();
+            Serial.print("LISTAGEM DE EVENTOS\n");
+            Serial.println();
+            for(int j =0 ; j<=l ; j++)
+            {
+               
+                Serial.println(evento[j]);
+
+        	}
+             Serial.println();
+        } 
+    }  
+    found = false;
+}
+
+
 void Room1()
 {
     Serial.print("Nome do Usuario: ");
@@ -126,7 +192,7 @@ void Room1()
                 l++; 
                 digitalWrite(Sala1 , HIGH);
                 Serial.println("Porta1 Liberada");
-                delay(20000);
+                delay(5000);
                 digitalWrite(Sala1 , LOW);
                 
             }
@@ -196,7 +262,7 @@ void Room2()
                 l++;
                 digitalWrite(Sala2 , HIGH);
                 Serial.println("Porta2 Liberada");
-                delay(20000);
+                delay(5000);
                 digitalWrite(Sala2 , LOW);
             }
         }
