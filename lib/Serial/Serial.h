@@ -6,8 +6,8 @@ Project: Desafio
 
 ==================================*/
 
-#ifndef _SERIAL_H
-#define _SERIAL_H
+#ifndef _SETUP_H
+#define _SETUP_H
 
 
 #include <Arduino.h>

@@ -8,6 +8,7 @@ Project: Desafio
 
 #include <GPIO.h>
 
+
 void GPIO_Init()
 {
 
@@ -17,6 +18,7 @@ void GPIO_Init()
   
   //initialize push button
   pinMode (Botao1, INPUT_PULLUP);
+  pinMode (Botao2, INPUT_PULLUP);
   
   attachInterrupt(digitalPinToInterrupt(Botao1), botaoacionado, FALLING);
   attachInterrupt(digitalPinToInterrupt(Botao2), botaoacionado, FALLING);

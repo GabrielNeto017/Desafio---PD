@@ -9,6 +9,8 @@ Project: Desafio
 #include <Arduino.h>
 #include <Options.h>
 
+
+
 //Declarations
 String nome[50];
 String senha[50];
@@ -17,6 +19,8 @@ String sala[50];
 String evento[100];
 
 String verificacao;
+
+
 
 int i, l = 0; //array to store data
 
@@ -152,6 +156,7 @@ void Room1()
     
     if(found)
     {
+        found = false;
         Serial.print("Entre com a senha: ");
         // wait for user input through serial
         while(Serial.available() == 0);
@@ -181,6 +186,7 @@ void Room1()
             if(verificacao=="1")
             {
                 sala[nameNo] = "Abriu a porta1";
+                evento[l].concat("\n");
                 evento[l].concat(l);
                 evento[l].concat(" - "); 
                 evento[l].concat(nome[nameNo]);
@@ -188,7 +194,11 @@ void Room1()
                 evento[l].concat(tipo[nameNo]);
                 evento[l].concat(",");
                 evento[l].concat(sala[nameNo]);
-                l++; 
+                
+                //SAVE LOGIN & ROOM (flash)
+                SaveUsers(evento[l]);     
+                l++;                         
+
                 digitalWrite(Sala1 , HIGH);
                 Serial.println("Porta1 Liberada");
                 delay(5000);
@@ -221,6 +231,7 @@ void Room2()
     
     if(found)
     {
+        found = false;
         Serial.print("Entre com a senha: ");
         // wait for user input through serial
         while(Serial.available() == 0);
@@ -251,6 +262,7 @@ void Room2()
             if(verificacao=="1")
             {
                 sala[nameNo] = "Abriu a porta2";
+                 evento[l].concat("\n");
                 evento[l].concat(l);
                 evento[l].concat(" - "); 
                 evento[l].concat(nome[nameNo]);
@@ -258,7 +270,11 @@ void Room2()
                 evento[l].concat(tipo[nameNo]);
                 evento[l].concat(",");
                 evento[l].concat(sala[nameNo]);
+                
+                //SAVE LOGIN & ROOM (flash)
+                SaveUsers(evento[l]);
                 l++;
+
                 digitalWrite(Sala2 , HIGH);
                 Serial.println("Porta2 Liberada");
                 delay(5000);
@@ -268,4 +284,4 @@ void Room2()
     }
 }
 
-    
+

@@ -6,9 +6,9 @@ Project: Desafio
 
 
 ==================================*/
+
 #ifndef _PINDEFINITION_H
 #define _PINDEFINITION_H
-
 
 #include<Arduino.h>
 
@@ -16,8 +16,9 @@ Project: Desafio
 
 #define Sala1 2
 #define Sala2 0
-#define Botao1 32
-#define Botao2 33
+#define Botao1 33
+#define Botao2 32
+
 
 
 #endif

@@ -18,7 +18,8 @@ void List_User();
 void List_Event();
 void Room1();
 void Room2();
-
-
+void SaveUsers(String Response);
+void ReadSavedData();
+void EraseSavedData();
 
 #endif
